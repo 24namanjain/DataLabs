@@ -28,3 +28,6 @@ MGET name city
 MSET platform "Flipkart" sale "Big Billion"
 MGET platform sale
 MSET platform "Amazon" sale "Great Indian"
+
+-- Delete a key
+DEL name platform
