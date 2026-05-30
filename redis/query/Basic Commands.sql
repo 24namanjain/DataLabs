@@ -31,3 +31,7 @@ MSET platform "Amazon" sale "Great Indian"
 
 -- Delete a key
 DEL name platform
+
+-- String Ranges
+GETRANGE platform 4 8
+SETRANGE platform 4 dart
