@@ -35,3 +35,25 @@ DEL name platform
 -- String Ranges
 GETRANGE platform 4 8
 SETRANGE platform 4 dart
+
+-- Numeric
+SET age 20
+GET age
+
+INCR age
+GET age
+
+DECR age
+GET age
+
+INCRBY age 10
+GET age
+
+DECRBY age 10
+GET age
+
+INCRBYFLOAT age 1.5
+GET age
+
+INCRBYFLOAT age -1.5
+GET age
