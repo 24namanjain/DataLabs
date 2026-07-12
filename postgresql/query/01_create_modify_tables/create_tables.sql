@@ -21,5 +21,33 @@ create table if not exists directors
     update_date   date
 );
 
-select * from actors;
-select * from directors;
+select *
+from actors;
+
+select *
+from directors;
+
+create table if not exists movies
+(
+    movie_id        serial primary key,
+    movie_name      varchar(150),
+    movie_length    integer,
+    movie_language  varchar(20),
+    age_certificate varchar(10),
+    release_date    date,
+    director_id     int references directors (director_id) -- foreign key to the director's table
+);
+
+create table if not exists movies_revenues
+(
+    movie_revenue_id      serial primary key,
+    movie_id              int references movies (movie_id), -- foreign key to the movie's table
+    revenue_domestic      numeric(10, 2),
+    revenue_international numeric(10, 2)
+);
+
+select *
+from movies;
+
+select *
+from movies_revenues;
