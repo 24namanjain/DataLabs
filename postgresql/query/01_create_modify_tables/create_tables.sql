@@ -51,3 +51,13 @@ from movies;
 
 select *
 from movies_revenues;
+
+create table if not exists movies_actor
+(
+    movie_id int references movies (movie_id),
+    actor_id int references actors (actor_id),
+    PRIMARY KEY (movie_id, actor_id)
+);
+
+select *
+from movies_actor;
