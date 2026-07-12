@@ -38,12 +38,14 @@ create table if not exists movies
     director_id     int references directors (director_id) -- foreign key to the director's table
 );
 
+alter table movies rename column movie_language to movie_lang;
+
 create table if not exists movies_revenues
 (
-    movie_revenue_id      serial primary key,
+    revenue_id      serial primary key,
     movie_id              int references movies (movie_id), -- foreign key to the movie's table
-    revenue_domestic      numeric(10, 2),
-    revenue_international numeric(10, 2)
+    revenues_domestic      numeric(10, 2),
+    revenues_international numeric(10, 2)
 );
 
 select *

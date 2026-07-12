@@ -1,7 +1,7 @@
 -- ---------------------------------------------------------
 --  Records of 'movies' database > table : movies_actors
 -- ---------------------------------------------------------
-INSERT INTO movies_actors (movie_id,actor_id) VALUES
+INSERT INTO movies_actor (movie_id,actor_id) VALUES
 ('1','52'),
 ('2','50'),
 ('3','23'),
