@@ -3,6 +3,9 @@
 
 .DEFAULT_GOAL := help
 
+CONTAINER_RUNTIME ?= podman
+COMPOSE := $(CONTAINER_RUNTIME) compose
+
 include resources/postgresql/Makefile
 include resources/redis/Makefile
 
@@ -39,7 +42,7 @@ down: postgres-down redis-down
 stop: postgres-stop redis-stop
 
 logs:
-	docker compose -f postgresql/docker-compose.yaml logs -f &
-	docker compose -f redis/docker-compose.yaml logs -f
+	$(COMPOSE) -f resources/postgresql/docker-compose.yaml logs -f &
+	$(COMPOSE) -f resources/redis/docker-compose.yaml logs -f
 
 clean-build: postgres-clean-build redis-clean-build

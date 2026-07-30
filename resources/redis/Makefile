@@ -1,21 +1,21 @@
 REDIS_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
-COMPOSE := docker compose -f $(REDIS_DIR)docker-compose.yaml
+REDIS_COMPOSE := $(COMPOSE) -f $(REDIS_DIR)docker-compose.yaml
 
 .PHONY: redis-up redis-down redis-stop redis-logs redis-clean-build
 
 redis-up:
-	$(COMPOSE) up -d
+	$(REDIS_COMPOSE) up -d
 
 redis-down:
-	$(COMPOSE) down -v
+	$(REDIS_COMPOSE) down -v
 
 redis-stop:
-	$(COMPOSE) stop
+	$(REDIS_COMPOSE) stop
 
 redis-logs:
-	$(COMPOSE) logs -f
+	$(REDIS_COMPOSE) logs -f
 
 redis-clean-build:
-	$(COMPOSE) down -v --rmi local
-	$(COMPOSE) pull
-	$(COMPOSE) up -d
+	$(REDIS_COMPOSE) down -v --rmi local
+	$(REDIS_COMPOSE) pull
+	$(REDIS_COMPOSE) up -d
